@@ -1,5 +1,10 @@
 const fsPromises = require('fs/promises')
 
+if (process.argv.length !== 4) {
+  console.log(chalk.red('Usage: node fast-copy.js ./src ./dst'))
+  process.exit(1)
+}
+
 const main = async () => {
   try {
     const dirDst = await fsPromises.mkdir(process.argv[3])
